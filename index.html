@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kashish — Creative Designer & Developer crafting immersive digital experiences with stunning visuals and interactive 3D design.">
+  <meta name="keywords" content="portfolio, creative designer, developer, UI/UX, 3D design, web developer, Kashish">
+  <meta name="author" content="Kashish">
+  <title>Kashish — Creative Designer & Developer</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+  <!-- 3D Canvas Background -->
+  <canvas id="three-canvas"></canvas>
+
+  <!-- Particle Canvas -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Magnetic Cursor -->
+  <div class="cursor" id="cursor">
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#hero" class="navbar__logo" id="nav-logo">
+        <span class="logo-text">K</span>kashish<span class="logo-dot">.</span>
+      </a>
+      <div class="navbar__links" id="navLinks">
+        <a href="#about" class="navbar__link" id="nav-about">About</a>
+        <a href="#skills" class="navbar__link" id="nav-skills">Skills</a>
+        <a href="#projects" class="navbar__link" id="nav-projects">Projects</a>
+        <a href="#experience" class="navbar__link" id="nav-experience">Journey</a>
+        <a href="#testimonials" class="navbar__link" id="nav-testimonials">Testimonials</a>
+        <a href="#contact" class="navbar__cta" id="nav-contact-cta">Say Hello 💌</a>
+      </div>
+      <button class="navbar__hamburger" id="hamburger" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============================
+       HERO SECTION
+       ============================ -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero__content">
+        <div class="hero__badge">
+          <span class="dot"></span>
+          Open to creative collaborations
+        </div>
+        <p class="hero__greeting" id="hero-greeting"></p>
+        <h1 class="hero__title">
+          I'm <span class="highlight">Kashish</span><br>
+          <span class="highlight--rose">Creative Designer</span><br>
+          & Digital Storyteller
+        </h1>
+        <p class="hero__description">
+          I blend art, code, and imagination to craft immersive digital experiences that captivate, inspire, and leave lasting impressions.
+        </p>
+        <div class="hero__actions">
+          <a href="#projects" class="btn btn--primary magnetic" id="hero-cta-projects">
+            Explore My Work <span class="btn__icon">→</span>
+          </a>
+          <a href="#contact" class="btn btn--outline magnetic" id="hero-cta-contact">
+            Let's Connect
+          </a>
+        </div>
+        <div class="hero__stats">
+          <div class="hero__stat">
+            <div class="hero__stat-number" id="stat-years">4+</div>
+            <div class="hero__stat-label">Years Creating</div>
+          </div>
+          <div class="hero__stat">
+            <div class="hero__stat-number" id="stat-projects">30+</div>
+            <div class="hero__stat-label">Projects Delivered</div>
+          </div>
+          <div class="hero__stat">
+            <div class="hero__stat-number" id="stat-clients">20+</div>
+            <div class="hero__stat-label">Happy Clients</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero__visual">
+        <div class="hero__3d-container" id="hero3d"></div>
+        <div class="hero__image-wrapper">
+          <img src="assets/profile.png" alt="Kashish — Creative Designer Portrait" class="hero__image" id="hero-profile-image">
+        </div>
+        <div class="hero__float-badge floating-badge-1">
+          <span class="badge-icon">🎨</span> UI/UX Design
+        </div>
+        <div class="hero__float-badge floating-badge-2">
+          <span class="badge-icon">✨</span> Three.js
+        </div>
+        <div class="hero__float-badge floating-badge-3">
+          <span class="badge-icon">💻</span> React
+        </div>
+        <div class="hero__float-badge floating-badge-4">
+          <span class="badge-icon">🌸</span> Figma
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       ABOUT SECTION
+       ============================ -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about__text reveal">
+        <span class="section__label">About Me</span>
+        <h2 class="section__title">
+          Where creativity<br><span>meets technology</span>
+        </h2>
+        <p>
+          I'm Kashish — a creative designer and developer who believes in the magic of blending aesthetics with functionality. With 4+ years of experience, I transform ideas into visually stunning, interactive digital experiences.
+        </p>
+        <p>
+          From dreamy UI designs to code-driven 3D animations, I bring a unique perspective that marries artistic vision with technical precision. Every pixel I place and every line of code I write tells a story.
+        </p>
+        <div class="about__cards">
+          <div class="about__card reveal reveal-delay-1">
+            <span class="about__card-icon">🌟</span>
+            <h3 class="about__card-title">Creative Vision</h3>
+            <p class="about__card-desc">Turning abstract ideas into visual masterpieces</p>
+          </div>
+          <div class="about__card reveal reveal-delay-2">
+            <span class="about__card-icon">💎</span>
+            <h3 class="about__card-title">Pixel Perfect</h3>
+            <p class="about__card-desc">Obsessive attention to every design detail</p>
+          </div>
+          <div class="about__card reveal reveal-delay-3">
+            <span class="about__card-icon">🎭</span>
+            <h3 class="about__card-title">Storytelling</h3>
+            <p class="about__card-desc">Crafting narratives through interactive design</p>
+          </div>
+          <div class="about__card reveal reveal-delay-4">
+            <span class="about__card-icon">🦋</span>
+            <h3 class="about__card-title">Innovation</h3>
+            <p class="about__card-desc">Pushing boundaries with 3D & motion design</p>
+          </div>
+        </div>
+      </div>
+      <div class="about__visual reveal reveal-delay-2">
+        <div class="code-card">
+          <div class="code-card__header">
+            <span class="code-card__dot code-card__dot--pink"></span>
+            <span class="code-card__dot code-card__dot--lavender"></span>
+            <span class="code-card__dot code-card__dot--mint"></span>
+            <span class="code-card__title">kashish.js</span>
+          </div>
+          <div class="code-card__body">
+            <div class="code-line">
+              <span class="code-line__number">1</span>
+              <span class="code-line__content">
+                <span class="code-keyword">const</span> <span class="code-variable">creative</span> <span class="code-operator">=</span> <span class="code-bracket">{</span>
+              </span>
+            </div>
+            <div class="code-line">
+              <span class="code-line__number">2</span>
+              <span class="code-line__content">
+                &nbsp;&nbsp;<span class="code-property">name</span><span class="code-operator">:</span> <span class="code-string">"Kashish"</span><span class="code-operator">,</span>
+              </span>
+            </div>
+            <div class="code-line">
+              <span class="code-line__number">3</span>
+              <span class="code-line__content">
+                &nbsp;&nbsp;<span class="code-property">title</span><span class="code-operator">:</span> <span class="code-string">"Creative Designer"</span><span class="code-operator">,</span>
+              </span>
+            </div>
+            <div class="code-line">
+              <span class="code-line__number">4</span>
+              <span class="code-line__content">
+                &nbsp;&nbsp;<span class="code-property">passion</span><span class="code-operator">:</span> <span class="code-string">"Visual Magic"</span><span class="code-operator">,</span>
+              </span>
+            </div>
+            <div class="code-line">
+              <span class="code-line__number">5</span>
+              <span class="code-line__content">
+                &nbsp;&nbsp;<span class="code-property">superpowers</span><span class="code-operator">:</span> <span class="code-bracket">[</span>
+              </span>
+            </div>
+            <div class="code-line">
+              <span class="code-line__number">6</span>
+              <span class="code-line__content">
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"3D Design"</span><span class="code-operator">,</span> <span class="code-string">"UI/UX"</span><span class="code-operator">,</span>
+              </span>
+            </div>
+            <div class="code-line">
+              <span class="code-line__number">7</span>
+              <span class="code-line__content">
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"Motion"</span><span class="code-operator">,</span> <span class="code-string">"Branding"</span>
+              </span>
+            </div>
+            <div class="code-line">
+              <span class="code-line__number">8</span>
+              <span class="code-line__content">
+                &nbsp;&nbsp;<span class="code-bracket">]</span><span class="code-operator">,</span>
+              </span>
+            </div>
+            <div class="code-line">
+              <span class="code-line__number">9</span>
+              <span class="code-line__content">
+                &nbsp;&nbsp;<span class="code-function">createMagic</span><span class="code-operator">:</span> () <span class="code-keyword">=></span> <span class="code-keyword">true</span> <span class="code-comment">✨</span>
+              </span>
+            </div>
+            <div class="code-line">
+              <span class="code-line__number">10</span>
+              <span class="code-line__content">
+                <span class="code-bracket">}</span><span class="code-operator">;</span>
+              </span>
+            </div>
+            <div class="code-line">
+              <span class="code-line__number">11</span>
+              <span class="code-line__content">
+                <span class="code-comment">// Dreams coded into reality 🌙</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       SKILLS SECTION
+       ============================ -->
+  <section class="skills" id="skills">
+    <div class="container">
+      <div class="skills__header reveal">
+        <span class="section__label">My Toolkit</span>
+        <h2 class="section__title">Skills & <span>Expertise</span></h2>
+        <p class="section__subtitle">The creative tools and technologies I wield to bring visions to life.</p>
+      </div>
+      <div class="skills__grid">
+        <div class="skill-card reveal reveal-delay-1" id="skill-figma">
+          <span class="skill-card__icon">🎨</span>
+          <h3 class="skill-card__name">Figma</h3>
+          <span class="skill-card__level">Expert</span>
+          <div class="skill-card__bar">
+            <div class="skill-card__bar-fill" data-width="95"></div>
+          </div>
+        </div>
+        <div class="skill-card reveal reveal-delay-2" id="skill-react">
+          <span class="skill-card__icon">⚛️</span>
+          <h3 class="skill-card__name">React.js</h3>
+          <span class="skill-card__level">Advanced</span>
+          <div class="skill-card__bar">
+            <div class="skill-card__bar-fill" data-width="90"></div>
+          </div>
+        </div>
+        <div class="skill-card reveal reveal-delay-3" id="skill-threejs">
+          <span class="skill-card__icon">🌐</span>
+          <h3 class="skill-card__name">Three.js</h3>
+          <span class="skill-card__level">Advanced</span>
+          <div class="skill-card__bar">
+            <div class="skill-card__bar-fill" data-width="90"></div>
+          </div>
+        </div>
+        <div class="skill-card reveal reveal-delay-4" id="skill-aftereffects">
+          <span class="skill-card__icon">🎬</span>
+          <h3 class="skill-card__name">After Effects</h3>
+          <span class="skill-card__level">Advanced</span>
+          <div class="skill-card__bar">
+            <div class="skill-card__bar-fill" data-width="85"></div>
+          </div>
+        </div>
+        <div class="skill-card reveal reveal-delay-5" id="skill-blender">
+          <span class="skill-card__icon">🧊</span>
+          <h3 class="skill-card__name">Blender 3D</h3>
+          <span class="skill-card__level">Intermediate</span>
+          <div class="skill-card__bar">
+            <div class="skill-card__bar-fill" data-width="85"></div>
+          </div>
+        </div>
+        <div class="skill-card reveal reveal-delay-6" id="skill-photoshop">
+          <span class="skill-card__icon">📸</span>
+          <h3 class="skill-card__name">Photoshop</h3>
+          <span class="skill-card__level">Expert</span>
+          <div class="skill-card__bar">
+            <div class="skill-card__bar-fill" data-width="95"></div>
+          </div>
+        </div>
+        <div class="skill-card reveal reveal-delay-7" id="skill-illustrator">
+          <span class="skill-card__icon">✏️</span>
+          <h3 class="skill-card__name">Illustrator</h3>
+          <span class="skill-card__level">Advanced</span>
+          <div class="skill-card__bar">
+            <div class="skill-card__bar-fill" data-width="90"></div>
+          </div>
+        </div>
+        <div class="skill-card reveal reveal-delay-8" id="skill-webflow">
+          <span class="skill-card__icon">🌊</span>
+          <h3 class="skill-card__name">Webflow</h3>
+          <span class="skill-card__level">Advanced</span>
+          <div class="skill-card__bar">
+            <div class="skill-card__bar-fill" data-width="90"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       PROJECTS SECTION
+       ============================ -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="projects__header reveal">
+        <span class="section__label">Creative Portfolio</span>
+        <h2 class="section__title">Featured <span>Projects</span></h2>
+        <p class="section__subtitle">A curated gallery of projects that showcase my passion for design, creativity, and interactive experiences.</p>
+      </div>
+      <div class="projects__grid">
+
+        <div class="project-card reveal reveal-delay-1" id="project-bloom">
+          <div class="project-card__image-wrapper">
+            <img src="assets/project1.png" alt="Bloom Brand Identity" class="project-card__image">
+            <div class="project-card__overlay">
+              <div class="project-card__overlay-links">
+                <a href="#" class="project-card__overlay-link" id="project1-live">View Project ↗</a>
+                <a href="#" class="project-card__overlay-link" id="project1-case">Case Study</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <div class="project-card__tags">
+              <span class="project-card__tag">Branding</span>
+              <span class="project-card__tag">Figma</span>
+              <span class="project-card__tag">Illustrator</span>
+            </div>
+            <h3 class="project-card__title">Bloom — Luxury Brand Identity</h3>
+            <p class="project-card__description">Complete brand identity design for a luxury skincare line, including logo, packaging, typography system, and digital presence.</p>
+          </div>
+        </div>
+
+        <div class="project-card reveal reveal-delay-2" id="project-aurora">
+          <div class="project-card__image-wrapper">
+            <img src="assets/project2.png" alt="Aurora 3D Experience" class="project-card__image">
+            <div class="project-card__overlay">
+              <div class="project-card__overlay-links">
+                <a href="#" class="project-card__overlay-link" id="project2-live">View Project ↗</a>
+                <a href="#" class="project-card__overlay-link" id="project2-case">Case Study</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <div class="project-card__tags">
+              <span class="project-card__tag">Three.js</span>
+              <span class="project-card__tag">WebGL</span>
+              <span class="project-card__tag">GSAP</span>
+            </div>
+            <h3 class="project-card__title">Aurora — Immersive 3D Web Experience</h3>
+            <p class="project-card__description">An interactive 3D website with particle systems, shader effects, and scroll-driven animations for an art exhibition.</p>
+          </div>
+        </div>
+
+        <div class="project-card reveal reveal-delay-3" id="project-velvet">
+          <div class="project-card__image-wrapper">
+            <img src="assets/project3.png" alt="Velvet Fashion App" class="project-card__image">
+            <div class="project-card__overlay">
+              <div class="project-card__overlay-links">
+                <a href="#" class="project-card__overlay-link" id="project3-live">View Project ↗</a>
+                <a href="#" class="project-card__overlay-link" id="project3-case">Case Study</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <div class="project-card__tags">
+              <span class="project-card__tag">UI/UX</span>
+              <span class="project-card__tag">React</span>
+              <span class="project-card__tag">Framer Motion</span>
+            </div>
+            <h3 class="project-card__title">Velvet — Fashion E-Commerce App</h3>
+            <p class="project-card__description">A premium fashion app with micro-interactions, AR try-on features, and a fluid shopping experience designed for Gen-Z.</p>
+          </div>
+        </div>
+
+        <div class="project-card reveal reveal-delay-4" id="project-dreamscape">
+          <div class="project-card__image-wrapper">
+            <img src="assets/project4.png" alt="Dreamscape Portfolio" class="project-card__image">
+            <div class="project-card__overlay">
+              <div class="project-card__overlay-links">
+                <a href="#" class="project-card__overlay-link" id="project4-live">View Project ↗</a>
+                <a href="#" class="project-card__overlay-link" id="project4-case">Case Study</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <div class="project-card__tags">
+              <span class="project-card__tag">Motion Design</span>
+              <span class="project-card__tag">After Effects</span>
+              <span class="project-card__tag">Blender</span>
+            </div>
+            <h3 class="project-card__title">Dreamscape — Motion Design Reel</h3>
+            <p class="project-card__description">A cinematic motion design showcase featuring 3D animations, kinetic typography, and abstract visual narratives.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       EXPERIENCE SECTION
+       ============================ -->
+  <section class="experience" id="experience">
+    <div class="container">
+      <div class="experience__header reveal">
+        <span class="section__label">Creative Journey</span>
+        <h2 class="section__title">My <span>Story</span></h2>
+        <p class="section__subtitle">A timeline of my creative evolution and key milestones.</p>
+      </div>
+      <div class="timeline reveal">
+
+        <div class="timeline__item">
+          <div class="timeline__dot"></div>
+          <span class="timeline__date">2024 — Present</span>
+          <div class="timeline__card">
+            <h3 class="timeline__role">Lead Creative Designer</h3>
+            <p class="timeline__company">Dreamweave Studios</p>
+            <p class="timeline__description">Leading the creative team in designing immersive digital experiences, 3D brand campaigns, and interactive web projects for global clients.</p>
+            <div class="timeline__tech">
+              <span class="timeline__tech-tag">Figma</span>
+              <span class="timeline__tech-tag">Three.js</span>
+              <span class="timeline__tech-tag">Blender</span>
+              <span class="timeline__tech-tag">React</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__dot"></div>
+          <span class="timeline__date">2023 — 2024</span>
+          <div class="timeline__card">
+            <h3 class="timeline__role">UI/UX Designer & Developer</h3>
+            <p class="timeline__company">Petal Design Co.</p>
+            <p class="timeline__description">Designed and developed beautiful user interfaces for mobile apps and websites. Created design systems and collaborated with cross-functional teams.</p>
+            <div class="timeline__tech">
+              <span class="timeline__tech-tag">Figma</span>
+              <span class="timeline__tech-tag">React Native</span>
+              <span class="timeline__tech-tag">Storybook</span>
+              <span class="timeline__tech-tag">Framer</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline__item">
+          <div class="timeline__dot"></div>
+          <span class="timeline__date">2022 — 2023</span>
+          <div class="timeline__card">
+            <h3 class="timeline__role">Freelance Designer & Creator</h3>
+            <p class="timeline__company">Independent</p>
+            <p class="timeline__description">Built a freelance career designing brand identities, motion graphics, and web experiences for startups and creative agencies worldwide.</p>
+            <div class="timeline__tech">
+              <span class="timeline__tech-tag">Photoshop</span>
+              <span class="timeline__tech-tag">After Effects</span>
+              <span class="timeline__tech-tag">Webflow</span>
+              <span class="timeline__tech-tag">Illustrator</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       TESTIMONIALS SECTION
+       ============================ -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="testimonials__header reveal">
+        <span class="section__label">Kind Words</span>
+        <h2 class="section__title">What Clients <span>Say</span></h2>
+        <p class="section__subtitle">Heartfelt feedback from amazing people I've had the joy of working with.</p>
+      </div>
+      <div class="testimonials__grid">
+
+        <div class="testimonial-card reveal reveal-delay-1" id="testimonial-1">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p class="testimonial-card__text">"Kashish brought our vision to life in ways we never imagined. Her design sensibility and attention to detail made our brand truly stand out. Absolutely magical work!"</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">SM</div>
+            <div>
+              <div class="testimonial-card__name">Sneha Mehta</div>
+              <div class="testimonial-card__role">CEO, Bloom Skincare</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-2" id="testimonial-2">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p class="testimonial-card__text">"Working with Kashish was a dream. She understood our creative direction instantly and delivered an interactive experience that exceeded all expectations."</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">RK</div>
+            <div>
+              <div class="testimonial-card__name">Rohan Kapoor</div>
+              <div class="testimonial-card__role">Creative Director, Aurora Gallery</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-3" id="testimonial-3">
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p class="testimonial-card__text">"Kashish's unique blend of design and development skills is rare to find. She created a stunning app that our users absolutely adore. True creative genius!"</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">AP</div>
+            <div>
+              <div class="testimonial-card__name">Ananya Patel</div>
+              <div class="testimonial-card__role">Founder, Velvet Fashion</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       CONTACT SECTION
+       ============================ -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact__content reveal">
+        <span class="section__label">Get In Touch</span>
+        <h2 class="section__title">Let's Create<br><span>Something Beautiful</span></h2>
+        <p class="section__subtitle" style="margin-bottom: 2rem;">Have a creative project in mind? I'd love to hear your ideas and bring them to life.</p>
+        <form class="contact__form" id="contactForm">
+          <div class="form-group">
+            <input type="text" class="form-group__input" id="contact-name" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-group__input" id="contact-email" placeholder="Your Email" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-group__input" id="contact-subject" placeholder="Project Type">
+          </div>
+          <div class="form-group">
+            <textarea class="form-group__textarea" id="contact-message" placeholder="Tell me about your dream project..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary magnetic" id="contact-submit">
+            Send Message <span class="btn__icon">💌</span>
+          </button>
+        </form>
+      </div>
+      <div class="contact__info reveal reveal-delay-2">
+        <div class="contact__info-card" id="info-email">
+          <span class="contact__info-icon">📧</span>
+          <div>
+            <p class="contact__info-label">Email</p>
+            <p class="contact__info-value">hello@kashish.design</p>
+          </div>
+        </div>
+        <div class="contact__info-card" id="info-location">
+          <span class="contact__info-icon">📍</span>
+          <div>
+            <p class="contact__info-label">Location</p>
+            <p class="contact__info-value">India 🇮🇳</p>
+          </div>
+        </div>
+        <div class="contact__info-card" id="info-availability">
+          <span class="contact__info-icon">🌸</span>
+          <div>
+            <p class="contact__info-label">Availability</p>
+            <p class="contact__info-value">Open for creative projects</p>
+          </div>
+        </div>
+        <div class="contact__socials">
+          <a href="#" class="contact__social-link" id="social-behance" aria-label="Behance">🎨</a>
+          <a href="#" class="contact__social-link" id="social-dribbble" aria-label="Dribbble">🏀</a>
+          <a href="#" class="contact__social-link" id="social-instagram" aria-label="Instagram">📷</a>
+          <a href="#" class="contact__social-link" id="social-linkedin" aria-label="LinkedIn">💼</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       FOOTER
+       ============================ -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__text">
+        © 2026 <span>Kashish</span>. Designed with 💖 and ✨
+      </p>
+      <a href="#hero" class="footer__back-to-top" id="back-to-top" aria-label="Back to top">↑</a>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">✨ Message sent successfully!</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
